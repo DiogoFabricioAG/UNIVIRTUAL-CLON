@@ -9,6 +9,8 @@ class College(models.Model): #Facultad
     def get_image(self):
         if self.image:
             return 'http://127.0.0.1:8000' + self.image.url
+        else:
+            return 'https://portal.uni.edu.pe/images/logos/logo_uni_2016.png'
     def __str__(self):
         return self.short_name
 class Career(models.Model):
