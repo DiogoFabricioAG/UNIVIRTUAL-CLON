@@ -25,7 +25,6 @@ def initialize_data():
 
     # Creacion de Carreras
     Arquitectura = Career.objects.create(name = 'Arquitectura',college = FAUA)
-    Arquitectura = Career.objects.create(name='Arquitectura', college=FC)
     Ingeniería_Física = Career.objects.create(name='Ingeniería Física', college=FC)
     Química = Career.objects.create(name='Química', college=FC)
     Física = Career.objects.create(name='Física', college=FC)
