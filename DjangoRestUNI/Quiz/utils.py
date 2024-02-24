@@ -27,7 +27,6 @@ def set_final_grades(iduser,idcourse):
             grade+= get_higher_grade_for_a_quiz(user.id,quiz.id).qualification/quiz.total_points
         except:
             pass
-        quiz.delete()
     grade = grade/num_of_quizzes
     state = True
     if grade < 0.5:
@@ -45,8 +44,8 @@ def set_final_grades(iduser,idcourse):
         pdf.cell(w=50,h=270,new_x=XPos.LMARGIN,new_y=YPos.NEXT,)
         pdf.cell(pdf.w,10,text = user.first_name + ' ' + user.last_name,align='C',new_x=XPos.LMARGIN,new_y=YPos.NEXT)
         pdf.cell(w=50,h=140,new_x=XPos.LMARGIN,new_y=YPos.NEXT,)
-        pdf.cell(pdf.w,50,text = course.name,align='C',new_x=XPos.LMARGIN,new_y=YPos.NEXT)
-        pdf.cell(pdf.w,30,text = 'Nota',align='C',new_x=XPos.LMARGIN,new_y=YPos.NEXT)
+        pdf.cell(pdf.w,20,text = course.name,align='C',new_x=XPos.LMARGIN,new_y=YPos.NEXT)
+        pdf.cell(pdf.w,70,text = 'Nota',align='C',new_x=XPos.LMARGIN,new_y=YPos.NEXT)
         pdf.cell(pdf.w,50,text = str(round(grade*20,4)),align='C',new_x=XPos.LMARGIN,new_y=YPos.NEXT)
         print(type(pdf))
         pdf_bytes = pdf.output(dest='S')

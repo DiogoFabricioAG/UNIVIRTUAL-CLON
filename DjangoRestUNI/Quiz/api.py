@@ -6,7 +6,7 @@ from Notification.models import Notification
 from Course.models import Course
 from User.models import User
 from .serializers import QuizSerializer,QuizProblemSerializer,QuizSolutionSerializer,QuizUserSolutionSerializer,UserResumeCourseSerializer
-
+from Chat.models import ChatRoom
 from . import utils
 @api_view(['POST'])
 def create_quiz(request,pk):
@@ -57,6 +57,12 @@ def set_finish_course(request,pk):
     students = course.students.all()
     for student in students:
         utils.set_final_grades(student.id,course.id)
+    myquizzes = course.quizzes.all().filter(state = 'Available')
+    for quiz in myquizzes:
+        quiz.delete()
+    room =ChatRoom.objects.filter(typeof = 'Forum',name__icontains=course.name)
+    if room.count() >0:
+        room[0].delete()
     course.active = False
     course.students.clear()
     course.save()

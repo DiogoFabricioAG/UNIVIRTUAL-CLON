@@ -118,12 +118,12 @@ export default {
         this.getCourses()
     },
     watch: {
-        "$route.params.id": { // <-- here 
+        "$route.params.id": { 
         handler () {
             this.getUser();
             this.getCourses();
         },
-            immediate: true, // will call handler on component mount / create as well, so no need to call fn on mounted again
+            immediate: true,
             deep:true,
         }
     },
@@ -135,6 +135,7 @@ export default {
             })
             .catch(error => {
                 console.log(error);
+                this.$router.push({name:'notAllowed'})
             })
         },
 

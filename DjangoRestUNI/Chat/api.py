@@ -133,12 +133,17 @@ def get_messages_from_a_group(request,pk):
 @api_view(['GET'])
 def get_forum_from_course(request,pk):
     course = Course.objects.get(pk = pk)
-    forum = ChatRoom.objects.filter(typeof = 'Forum').filter(name__icontains=course.name)
-    if forum.count():
+    forum = ChatRoom.objects.filter(name = "Foro del curso " + course.name).filter(typeof = 'Forum')
+    if forum.count() == 1:
         serializer = ChatRoomSerializer(forum,many=True)
-        return JsonResponse(serializer.data,safe=False)
+        return JsonResponse(
+            {
+                'forum' : serializer.data,
+                'message':'ok'
+            }
+            ,safe=False)
     else:
-        return JsonResponse({'message':"This course doesn't have a forum"})
+        return JsonResponse({'message':"This course does not have a forum"})
 
 @api_view(['GET'])
 def groups_im_admin(request):

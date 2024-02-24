@@ -127,6 +127,7 @@ export default {
             materials:[],
             forumexist : false,
             forum: {
+                id:null
             }
         }
     },
@@ -160,7 +161,9 @@ export default {
             await axios.get(`chat/forum/${this.$route.params.id}/`)
             .then(response => {
                 console.log(response.data);
-                this.forum = response.data[0]
+                if (this.message !== "This course does not have a forum"){
+                    this.forum = response.data.forum[0] 
+                }
             })
             .catch(error => {
                 console.log(error);

@@ -13,7 +13,7 @@ from Calendar.models import Event
 from Notification.models import Notification
 
 today = datetime.date.today().strftime('%Y/%m/%d')
-print(__name__)
+
 
 allEvents = Event.objects.all()
 for event in allEvents:

@@ -41,7 +41,7 @@
                                 <input v-model="section" type="text" placeholder="U" class="rounded-md w-[100%] border p-1 border-black" > 
                             </div>
                             <label class="custom-file-upload border space-x-4 border-black p-3 mt-2">
-                                <span>Imagen de Perfil</span>
+                                <span>Imagen del curso</span>
                                 <span v-if="imagePreview">Archivo Cargado</span>
                                 <input class="border border-black p-1 rounded-md" ref="file" @change="previewImage" type="file">
                             </label>

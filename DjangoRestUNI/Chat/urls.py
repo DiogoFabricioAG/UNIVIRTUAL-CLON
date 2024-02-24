@@ -14,7 +14,6 @@ urlpatterns = [
     path('group/<uuid:pk>/add/<uuid:id>/',api.add_user_to_group, name='add_user_to_group'),
     path('forum/<int:pk>/',api.get_forum_from_course, name='get_forum_from_course'),
     path('forum/<int:pk>/create/',api.create_forum, name='create_forum'),
-   
     path('forum/<uuid:pk>/createmessages/',api.create_message_for_a_forum, name='create_message_for_a_forum'),
     path('forum/<uuid:pk>/messages/',api.get_messages_from_a_forum, name='get_messages_from_a_forum'),
 ]
