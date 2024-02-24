@@ -113,6 +113,13 @@ def get_list_of_friends(request):
     serializer = UserSerializer(friends,many=True)
     return JsonResponse(serializer.data,safe=False)
 
+@api_view(['DELETE'])
+def delete_friend(request,pk):
+    user = User.objects.get(pk = request.user.id)
+    friend = User.objects.get(pk = pk)
+    user.friends.remove(friend)
+    friend.friends.remove(user)
+    return JsonResponse({'message':'Deleted'})
 @api_view(['POST'])
 def generate_qr(request, pk):
     user = User.objects.get(pk=pk)

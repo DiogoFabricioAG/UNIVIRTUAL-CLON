@@ -8,6 +8,7 @@ urlpatterns = [
     path('me/',api.me,name='me'),
     path('signup/',api.signup,name='signup'),
     path('friends/',api.get_list_of_friends,name='get_list_of_friends'),
+    path('friends/delete/<uuid:pk>/',api.delete_friend,name='delete_friend'),
     path('edit/<uuid:pk>/',api.edit_user,name='edit_user'),
     path('login/',TokenObtainPairView.as_view(), name='token_obtain'),
     path('editpassword/',api.password_change, name='password_change'),

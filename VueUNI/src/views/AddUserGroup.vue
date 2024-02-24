@@ -2,7 +2,7 @@
     <Navbar/>
     <div class="max-w-screen-2xl mt-5 mx-20">
         <div>
-            <h1 class="text-3xl font-sans font-bold">Mis Grupos 🎯</h1>
+            <h1 class="text-3xl mb-4 font-sans font-bold">Mis Grupos 🎯</h1>
         </div>
     </div> 
     <div class="bg-white max-w-[80vw] rounded-md mx-auto p-2" >

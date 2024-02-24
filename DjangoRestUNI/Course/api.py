@@ -18,7 +18,6 @@ def get_courses(request):
 def a_forum_exist(request,pk):
     course = Course.objects.get(pk = pk)
     forum = ChatRoom.objects.filter(name = "Foro del curso " + course.name).filter(typeof = 'Forum')
-    print(forum )
     if forum.count() != 0:
         return JsonResponse({'status':True})
     else:

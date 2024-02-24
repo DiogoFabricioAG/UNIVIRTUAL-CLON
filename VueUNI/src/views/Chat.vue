@@ -89,9 +89,9 @@
                 
             
                 <form @submit.prevent="submitForm" method="post" class="h-[25%] text-sm flex justify-between  space-y-2 p-2 items-center ">
-                    <label class="custom-file-upload">
-                        <input type="file" ref="file" id="file"/>
-                        <svg class="feather feather-camera" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                    <label class="custom-file-upload"> 
+                        <input type="file" @change="setimage" ref="file" id="file"/>
+                        <svg class="feather feather-camera" :class="[image ?'text-green-500':'text-black']"  fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
                     </label>
                     <textarea v-model="content" name="Chat" cols="10" rows="10" class="w-full resize-none p-2 h-full bg-slate-100 border border-gray-600 rounded-md placeholder-slate-400" placeholder="Escribe un mensaje"></textarea>
                     <button class="rounded-full h-10 w-10 p-1 hover:bg-gray-200 duration-200 transition"><svg class="feather feather-send" fill="none" stroke="currentColor" stroke-linecap="round" width="32" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg"><line x1="22" x2="11" y1="2" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
@@ -141,7 +141,8 @@ export default {
             content: '',
             messages : [],
             groups: [],
-            friends:[]
+            friends:[],
+            image: false ,
         }
     },
     mounted() {
@@ -151,6 +152,9 @@ export default {
     },
     
     methods: {
+        setimage(){
+            this.image = true
+        },
         async getFriends(){
             await axios.get(`user/friends/`)
             .then(response => {

@@ -5,7 +5,7 @@ from fpdf import FPDF
 from fpdf import XPos
 from fpdf import YPos
 from django.core.files.base import ContentFile
-
+from Notification.models import Notification
 
 def get_higher_grade_for_a_quiz(iduser,idquiz):
     user = User.objects.get(pk = iduser)
@@ -50,5 +50,6 @@ def set_final_grades(iduser,idcourse):
         print(type(pdf))
         pdf_bytes = pdf.output(dest='S')
         user_resume_course = UserResumeCourse.objects.create(user = user , course = course,grade_prom=grade*20,passed=state)
+        notification = Notification.objects.create(send_to = user, typenotification = f'El curso {course.name} ha terminado. Revisa el Apartado Certificados.')
         user_resume_course.certificate.save('certificate.pdf', ContentFile(pdf_bytes))
      
