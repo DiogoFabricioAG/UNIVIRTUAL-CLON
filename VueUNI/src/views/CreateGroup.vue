@@ -7,7 +7,7 @@
             <input v-model="title" class="border border-black p-2 rounded-md" placeholder="Coloque el nombre del Grupo" type="text">            
             <label>Imagen del Grupo</label>
             <label class="custom-file-upload border border-black p-3 mt-2">
-                <span v-if="image">Imagen</span>
+                <span v-if="!image">Imagen</span>
                 <span v-else>Imagen cargada</span>
                 <input @change="getImg" class="border border-black p-1 rounded-md" ref="file" type="file">
             </label>
