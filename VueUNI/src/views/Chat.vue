@@ -186,6 +186,7 @@ export default {
             })
             .then(response => {
                 this.messages.push(response.data)
+                this.image=false
             })
             this.content = ''
         },

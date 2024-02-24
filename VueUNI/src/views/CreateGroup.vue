@@ -7,12 +7,18 @@
             <input v-model="title" class="border border-black p-2 rounded-md" placeholder="Coloque el nombre del Grupo" type="text">            
             <label>Imagen del Grupo</label>
             <label class="custom-file-upload border border-black p-3 mt-2">
-                <span>Imagen del Grupo</span>
-                <input class="border border-black p-1 rounded-md" ref="file" type="file">
+                <span v-if="image">Imagen</span>
+                <span v-else>Imagen cargada</span>
+                <input @change="getImg" class="border border-black p-1 rounded-md" ref="file" type="file">
             </label>
     
             <button class="p-2 mt-2 hover:bg-slate-700 transition duration-300 active:shadow-lg active:bg-slate-500 bg-black text-white">Crear</button>
         </form>
+        <div class="mt-2">
+            <div class="bg-red-500 text-center text-white p-1" v-for="(error, index) in errors" :key="index">
+                <p>{{ error }}</p>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -36,9 +42,14 @@ export default{
     data() {
         return {
             title:'',
+            image: false,
+            errors: [],
         }
     },
     methods: {
+        async getImg(){
+            this.image = true
+        },
         async createGroup(){
             let formdata = new FormData()
             formdata.append('title',this.title)
@@ -49,6 +60,7 @@ export default{
             })
             .catch(error =>{
                 console.log(error);
+                this.errors.push('Es necesario una imagen para el grupo')
             })
 
         }
