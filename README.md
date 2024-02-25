@@ -24,3 +24,4 @@ Pero tambien puedes utilizar el frontend de manera local, para eso deberas insta
 3. Finalmente correr el programa con el siguiente comando: npm run dev
 4. Ya con esto estaria configurado el programa y listo para usar.
 
+Una cosa mas, para tener los datos de las Facultades y carreras, correr el script **create_data.py** que esta en la carpeta scripts dentro de la carpeta DjangoRestUNI. Con esto obtienes los datos de las carreras para que puedan ser usadas a la hora de crear cursos en con el rol de Profesor.
