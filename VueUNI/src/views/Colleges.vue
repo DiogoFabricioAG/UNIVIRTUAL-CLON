@@ -1,7 +1,7 @@
 <template>
     <NavbarVue/>
     <div class="bg-white mt-5 max-w-[80vw] rounded-md mx-auto" >
-        <h2 class="text-2xl font-sans font-bold p-5">Falcutades 🏫</h2>
+        <h2 class="text-2xl font-sans font-bold p-5">Facultades 🏫</h2>
         <div class="flex flex-wrap w-full">
             <router-link  class="mt-3 mx-auto relative z-5 active:scale-95 duration-300 transition-transform" v-for="college in colleges" :key="college.id" :to="{name : 'college',params:{id:college.id}}">
             <div class="w-[350px]  p-4 overflow-hidden shadow-md">
