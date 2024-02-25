@@ -1,7 +1,7 @@
 <template >
     <div class="relative w-full h-[100vh] overflow-hidden ">
         <img class="w-full h-full top-0 select-none z-20 absolute" src="https://univirtual.uni.pe/pluginfile.php/1/theme_moove/loginbgimg/1704278506/Pabellon.jpg" alt="Pabellon">
-        <form method="post" @submit.prevent="createUser" class="p-10 space-y-3 bg-white w-[50%] flex flex-col overflow-y-auto h-full left-1/4 mt-5 absolute z-50">
+        <form method="post" @submit.prevent="createUser" class="p-10 space-y-3 bg-white w-[80%] md:w-[50%]  flex flex-col overflow-y-auto h-full left-[10%] md:left-1/4 mt-5 absolute z-50">
             <h1 class="text-2xl font-bold">Nueva cuenta</h1>
             <label for="nombre" class="text-sm">Nombres del Usuario</label>
             <input v-model="name" type="text" id="nombre" class="p-1 border rounded-lg border-black">
@@ -33,8 +33,6 @@
             <router-link :to="{name:'login'}" class="p-2 bg-gray-600 text-center border border-gray-600 text-white hover:bg-white duration-200 hover:text-gray-600">Cancelar</router-link>
         </form>
     </div>
-  
-
 </template>
 
 <script>
