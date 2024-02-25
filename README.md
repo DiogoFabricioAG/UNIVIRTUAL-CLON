@@ -1,5 +1,5 @@
 # Instalacion del Proyecto
-
+![image](https://github.com/DiogoFabricioAG/UNIVIRTUAL-CLON/assets/126220077/61032a5b-1f6e-4a81-a982-1aee0a52e946)
 ## Instalación del Backend
 Para utilizar el backend de Django es necesario tener lo siguiente:
 - Python v3.12.1 [Click](https://www.python.org/downloads/release/python-3121/)
